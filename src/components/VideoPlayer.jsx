@@ -1,22 +1,16 @@
 import { useLayoutEffect, useEffect, useRef, useState } from "react";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import "videojs-youtube";
 
-function VideoPlayer({ src, type }) {
+function VideoPlayer({ video }) {
   const videoRef = useRef(null);
   const playerRef = useRef(null);
   const [showSkipIntro, setShowSkipIntro] = useState(false);
   const [showSkipRecap, setShowSkipRecap] = useState(false);
   const [showNextEpisode, setShowNextEpisode] = useState(false);
 
-
-  const INTRO_START_TIME = 10;
-  const INTRO_END_TIME = 90; 
-
-  const RECAP_START_TIME = 90;
-  const RECAP_END_TIME = 120;
-
-  const OUTRO_START_TIME = 490;
+  const { src, intro_start, intro_end, recap_start, recap_end, outro_start } = video;
 
   useLayoutEffect(() => {
     if (playerRef.current) return;
@@ -28,11 +22,22 @@ function VideoPlayer({ src, type }) {
 
     const player = (playerRef.current = videojs(videoElement, {
       controls: true,
-      autoplay: true,
+      autoplay: false,
       preload: "auto",
       fluid: true,
       responsive: true,
-      sources: [{ src, type }],
+      techOrder: ["youtube"],
+      sources: [
+        {
+          src,
+          type: "video/youtube",
+        },
+      ],
+      youtube: {
+        iv_load_policy: 3,
+        modestbranding: 1,
+        rel: 0,
+      },
     }));
 
     // Show / hide skip button
@@ -45,47 +50,41 @@ function VideoPlayer({ src, type }) {
 
     // Show skip button when intro starts
     player.on("timeupdate", () => {
-      if (player.currentTime() >= INTRO_START_TIME) {
+      if (player.currentTime() >= intro_start) {
         setShowSkipIntro(true);
-      }
-      else
-      {
+      } else {
         setShowSkipIntro(false);
       }
     });
 
     // Hide once intro is over
     player.on("timeupdate", () => {
-      if (player.currentTime() >= INTRO_END_TIME) {
+      if (player.currentTime() >= intro_end) {
         setShowSkipIntro(false);
       }
     });
 
     // Show skip button when recap starts
     player.on("timeupdate", () => {
-      if (player.currentTime() >= RECAP_START_TIME) {
+      if (player.currentTime() >= recap_start) {
         setShowSkipRecap(true);
-      }
-      else
-      {
+      } else {
         setShowSkipRecap(false);
       }
     });
 
     // Hide once recap is over
     player.on("timeupdate", () => {
-      if (player.currentTime() >= RECAP_END_TIME) {
+      if (player.currentTime() >= recap_end) {
         setShowSkipRecap(false);
       }
     });
 
     // Hide once recap is over
     player.on("timeupdate", () => {
-      if (player.currentTime() >= OUTRO_START_TIME) {
+      if (player.currentTime() >= outro_start) {
         setShowNextEpisode(true);
-      }
-      else
-      {
+      } else {
         setShowNextEpisode(false);
       }
     });
@@ -101,9 +100,12 @@ function VideoPlayer({ src, type }) {
   // Update source safely
   useEffect(() => {
     if (playerRef.current && src) {
-      playerRef.current.src({ src, type });
+      playerRef.current.src({
+        src,
+        type: "video/youtube",
+      });
     }
-  }, [src, type]);
+  }, [src]);
 
   const skipIntro = () => {
     if (!playerRef.current) return;

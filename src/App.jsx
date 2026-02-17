@@ -2,6 +2,10 @@ import VideoPlayer from "./components/VideoPlayer";
 import NavbarUnauthenticated from "./components/NavbarUnauthenticated";
 
 function App() {
+  const video = {
+    src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    intro_start: 0
+  }
   return (
     <>
       <NavbarUnauthenticated />
@@ -37,12 +41,11 @@ function App() {
         </div>
       </div>
       <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
-        {/* <div className="row">
+        <div className="row">
           <VideoPlayer
-            src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            type="video/mp4"
+            video={video}
           />
-        </div> */}
+        </div>
       </div>
     </>
   );
