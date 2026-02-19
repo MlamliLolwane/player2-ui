@@ -81,13 +81,13 @@ function VideoPlayer({ video }) {
     });
 
     // Hide once recap is over
-    player.on("timeupdate", () => {
-      if (player.currentTime() >= outro_start) {
-        setShowNextEpisode(true);
-      } else {
-        setShowNextEpisode(false);
-      }
-    });
+    // player.on("timeupdate", () => {
+    //   if (player.currentTime() >= outro_start) {
+    //     setShowNextEpisode(true);
+    //   } else {
+    //     setShowNextEpisode(false);
+    //   }
+    // });
 
     return () => {
       if (playerRef.current) {
