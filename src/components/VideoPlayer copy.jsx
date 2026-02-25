@@ -15,7 +15,7 @@ function VideoPlayer({ video }) {
     videoUrl,
     introStartTime,
     introEndTime,
-    recapStartTime,
+    recap_start,
     recapEndTime,
     outroStartTime,
   } = video;
@@ -53,26 +53,26 @@ function VideoPlayer({ video }) {
       const currentTime = player.currentTime();
 
     // Show skip button when intro starts
-      if (currentTime >= introStartTime) {
+      if (currentTime >= intro_start) {
         setShowSkipIntro(true);
       } else {
         setShowSkipIntro(false);
       }
 
     // Hide once intro is over
-      if (currentTime >= introEndTime) {
+      if (currentTime >= intro_end) {
         setShowSkipIntro(false);
       }
 
     // Show skip button when recap starts
-      if (currentTime >= recapStartTime) {
+      if (currentTime >= recap_start) {
         setShowSkipRecap(true);
       } else {
         setShowSkipRecap(false);
       }
 
     // Hide once recap is over
-      if (currentTime >= recapEndTime) {
+      if (currentTime >= recap_end) {
         setShowSkipRecap(false);
       }
     });

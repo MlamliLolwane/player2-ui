@@ -1,13 +1,12 @@
-import CreateAccountModal from "./CreateAccountModal";
 import { Link, useNavigate } from "react-router-dom";
 
-function NavbarUnauthenticated() {
+function NavbarAuthenticated() {
+  const navigate = useNavigate();
   return (
     <>
-      <CreateAccountModal />
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/authenticated/home">
             Player 2
           </Link>
           <button
@@ -24,12 +23,12 @@ function NavbarUnauthenticated() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" aria-current="page" to="/about">
+                <Link className="nav-link" aria-current="page" to="/authenticated/about">
                   ABOUT
                 </Link>
               </li>
               <li className="nav-item px-5">
-                <Link className="nav-link" to="/contact">
+                <Link className="nav-link" to="/authenticated/contact">
                   CONTACT
                 </Link>
               </li>
@@ -39,22 +38,15 @@ function NavbarUnauthenticated() {
             </ul>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="btn btn-secondary me-3"
-                  aria-current="page"
-                  to="/login"
-                >
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
                 <button
                   className="btn btn-primary"
                   aria-current="page"
-                  data-bs-toggle="modal"
-                  data-bs-target="#createAccountModal"
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    navigate('/login')
+                  }}
                 >
-                  Try It Out
+                  Logout
                 </button>
               </li>
             </ul>
@@ -65,4 +57,4 @@ function NavbarUnauthenticated() {
   );
 }
 
-export default NavbarUnauthenticated;
+export default NavbarAuthenticated;
