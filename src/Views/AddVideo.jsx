@@ -59,7 +59,7 @@ function AddVideo() {
       <div className="container-fluid mx-auto my-5">
         <div className="row justify-content-center">
           <div className="col-6 border align-items-center">
-            <h2 className="pt-5 pb-3 ps-5">ADD VIDEO</h2>
+            <h3 className="pt-5 pb-3 ps-5">Add Video</h3>
             <p className="pb-3 px-5 fw-lighter fs-5">
               Use the form below to add a video to the system and see the player
               in action. Please note that only YouTube videos are supported. All

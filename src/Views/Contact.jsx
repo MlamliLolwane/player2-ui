@@ -17,7 +17,7 @@ function Contact() {
       <div className="container mt-5 px-4 border py-5">
         <div className="row gx-5 ps-1">
           <div className="col">
-            <h2>Contact</h2>
+            <h3>Contact</h3>
             <p className="fw-lighter fs-5">
               I am actively job seeking and open for new opportunities. If you
               like what you see or have any feedback then you can get in touch
@@ -25,7 +25,7 @@ function Contact() {
             </p>
           </div>
           <div className="row gx-3">
-            <div className="col bg-light-subtle border py-3 mx-3">
+            <div className="col-10 col-lg-3 bg-light-subtle border py-3 mx-3 mb-4 mb-lg-0">
               <h3>
                 Call <i class="bi bi-telephone-fill"></i>
               </h3>
@@ -41,7 +41,7 @@ function Contact() {
                 </b>
               </p>
             </div>
-            <div className="col bg-light-subtle border py-3 mx-3">
+            <div className="col-10 col-lg-3 bg-light-subtle border py-3 mx-3 mb-4 mb-lg-0">
               <h3>
                 Email <i class="bi bi-envelope-fill"></i>
               </h3>
@@ -53,7 +53,7 @@ function Contact() {
                 and I will get back to you swiftly.
               </p>
             </div>
-            <div className="col bg-light-subtle border py-3 mx-3">
+            <div className="col-10 col-lg-3 bg-light-subtle border py-3 mx-3">
               <h3>
                 LinkedIn <i class="bi bi-linkedin"></i>
               </h3>

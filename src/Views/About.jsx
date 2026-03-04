@@ -17,7 +17,7 @@ function About() {
       <div className="container mt-5 px-4 border py-5">
         <div className="row gx-5 ps-1">
           <div className="col">
-            <h2>About</h2>
+            <h3>About</h3>
             <p className="fw-lighter fs-5">
               Player 2 is a video player created to give users controls to skip
               recaps, intros as well as outros. I believe that these features

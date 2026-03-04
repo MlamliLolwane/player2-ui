@@ -84,8 +84,8 @@ function App() {
       <NavbarUnauthenticated />
       <div className="container-fluid mx-auto mt-5">
         <div className="row justify-content-center">
-          <div className="col-6 border align-items-center">
-            <h2 className="pt-5 pb-3 ps-5">LOGIN</h2>
+          <div className="col-lg-6 col-md-10 border align-items-center">
+            <h3 className="pt-5 pb-3 ps-5">Login</h3>
             <p className="pb-3 px-5 fw-lighter fs-5">
               Use the login credentials that were created for you when you
               clicked the Try It Out button. If you don't have the credentials

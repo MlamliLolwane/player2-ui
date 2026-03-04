@@ -60,18 +60,20 @@ function AuthenticatedHome() {
 
       <NavbarAuthenticated />
       {videos.length > 0 && (
-        <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center">
-          <div className="row">
-            {video?.videoUrl && <VideoPlayer video={video} />}
+        <div className="container">
+          <div className="row my-5 d-flex align-items-center justify-content-center">
+            <div className="col-md-9 col-12">
+              {video?.videoUrl && <VideoPlayer video={video} />}
+            </div>
           </div>
         </div>
       )}
       {!showOverlay && (
-        <div className="container mt-5 px-4 border py-5">
-          <div className="row gx-5 ps-1">
-            <div className="col">
+        <div className="container mt-3 px-4 border py-5">
+        <div className="row px-2">
+            <div className="col-12">
               <div className="d-flex align-items-center justify-content-between mb-3">
-                <h2 className="mb-0">Player 2 Sample Playlist</h2>
+                <h3 className="mb-0">Player 2 Sample Playlist</h3>
                 <Link
                   className="btn btn-primary me-4"
                   to="/authenticated/add-video"
@@ -92,11 +94,11 @@ function AuthenticatedHome() {
             </div>
           </div>
           {videos.length > 0 ? (
-            <div className="row gx-5 ms-1 border py-5 me-1">
+            <div className="row border pt-5 mx-1 d-flex align-items-center justify-content-center">
               {videos.map((video) => (
                 <div
                   key={video.id}
-                  className="col-lg-3 border bg-light-subtle py-3 mx-5 hoverable"
+                  className="col-10 col-lg-3 border bg-light-subtle py-3 mx-3 hoverable mb-5"
                   onClick={() => PlayVideo(video)}
                 >
                   <i className="bi bi-play-circle-fill"></i>{" "}
