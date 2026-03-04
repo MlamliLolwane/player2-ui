@@ -59,8 +59,15 @@ function Contact() {
               </h3>
               <p className="fw-lighter fs-5">
                 You can send me a direct message on linked in through the
-                following profile LinkedIn and I will get back to you as soon as
-                I get a notification from the LinkedIn app.
+                following{" "}
+                <a
+                  href="https://za.linkedin.com/in/mlamli-lolwane-3ba96b196"
+                  target="_blank"
+                >
+                  LinkedIn Profile
+                </a>{" "}
+                and I will get back to you as soon as I get a notification from
+                the LinkedIn app.
               </p>
             </div>
           </div>
