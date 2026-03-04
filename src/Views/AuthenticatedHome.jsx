@@ -63,14 +63,16 @@ function AuthenticatedHome() {
         <div className="container">
           <div className="row my-5 d-flex align-items-center justify-content-center">
             <div className="col-md-9 col-12">
-              {video?.videoUrl && <VideoPlayer video={video} />}
+              {video?.videoUrl && (
+                <VideoPlayer key={video.videoUrl} video={video} />
+              )}
             </div>
           </div>
         </div>
       )}
       {!showOverlay && (
         <div className="container mt-3 px-4 border py-5">
-        <div className="row px-2">
+          <div className="row px-2">
             <div className="col-12">
               <div className="d-flex align-items-center justify-content-between mb-3">
                 <h3 className="mb-0">Player 2 Sample Playlist</h3>
